@@ -130,4 +130,4 @@ TODO
 
 ## Create Docker Image
 
-    ./sbt server/docker
+    ./goBuild.sh assembly
