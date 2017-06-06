@@ -94,7 +94,7 @@ libraryDependencies ++= Seq(
 
 If healthy the server response is:
 
-    200 {"version":"1.0","status":"OK","message":"Welcome to the ubirchTemplateService"}
+    200 {"version":"1.0","status":"OK","message":"Welcome to the ubirchTemplateService ( $GO_PIPELINE_NAME / $GO_PIPELINE_LABEL / $GO_PIPELINE_REVISION )"}
 
 If not healthy the server response is:
 
