@@ -86,10 +86,11 @@ libraryDependencies ++= Seq(
 
 ## REST Methods
 
-### Welcome / Health
+### Welcome / Health / Check
 
     curl localhost:8092/
     curl localhost:8092/api/templateService/v1
+    curl localhost:8092/api/templateService/v1/check
 
 If healthy the server response is:
 

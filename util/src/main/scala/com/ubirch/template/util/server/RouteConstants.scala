@@ -9,6 +9,8 @@ object RouteConstants {
   final val apiPrefix = "api"
   final val serviceName = "templateService"
   final val currentVersion = "v1"
+  final val check = "check"
+  final val deepcheck = "deepcheck"
 
   val pathPrefix = s"/$apiPrefix/$serviceName/$currentVersion"
 

@@ -21,6 +21,8 @@ class MainRoute {
 
           pathEndOrSingleSlash {
             welcome.route
+          } ~ path(RouteConstants.check) {
+            welcome.route
           }
 
         }
