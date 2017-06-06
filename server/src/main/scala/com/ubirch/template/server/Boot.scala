@@ -27,7 +27,7 @@ object Boot extends App with StrictLogging {
   implicit val materializer = ActorMaterializer()
   implicit val executionContext = system.dispatcher
 
-  implicit val timeout = Timeout(Config.timeout seconds)
+  implicit val timeout = Timeout(Config.actorTimeout seconds)
 
   val bindingFuture = start()
   registerShutdownHooks()

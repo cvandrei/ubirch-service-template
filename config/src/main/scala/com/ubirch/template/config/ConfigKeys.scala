@@ -14,7 +14,6 @@ object ConfigKeys {
 
   final val INTERFACE = s"$CONFIG_PREFIX.interface"
   final val PORT = s"$CONFIG_PREFIX.port"
-  final val TIMEOUT = s"$CONFIG_PREFIX.timeout"
 
   final val GO_PIPELINE_NAME = s"$CONFIG_PREFIX.gopipelinename"
   final val GO_PIPELINE_LABEL = s"$CONFIG_PREFIX.gopipelinelabel"
