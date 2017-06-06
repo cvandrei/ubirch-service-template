@@ -19,11 +19,8 @@ trait WelcomeRoute extends MyJsonProtocol {
     get {
       complete {
 
-        val gpn = Config.goPipelineName
-        val gpl = Config.goPipelineLabel
-        val gpr = Config.goPipelineRevision
-
-        JsonResponse(message = s"Welcome to the ubirchUserService ( $gpn / $gpl / $gpr )")
+        val goInfo = s"${Config.goPipelineName} / ${Config.goPipelineLabel} / ${Config.goPipelineRevision}"
+        JsonResponse(message = s"Welcome to the ubirchUserService ( $goInfo )")
 
       }
     }
