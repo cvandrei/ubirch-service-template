@@ -12,6 +12,7 @@ import akka.http.scaladsl.server.Route
 class MainRoute {
 
   val welcome = new WelcomeRoute {}
+  val deepCheck = new DeepCheckRoute {}
 
   val myRoute: Route = {
 
@@ -23,7 +24,7 @@ class MainRoute {
             welcome.route
           } ~ path(RouteConstants.check) {
             welcome.route
-          }
+          } ~ deepCheck.route
 
         }
       }

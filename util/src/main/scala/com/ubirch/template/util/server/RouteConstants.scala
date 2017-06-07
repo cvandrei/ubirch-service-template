@@ -11,7 +11,7 @@ object RouteConstants {
   final val currentVersion = "v1"
 
   final val check = "check"
-  final val deepCheck = "deepcheck"
+  final val deepCheck = "deepCheck"
 
   val pathPrefix = s"/$apiPrefix/$serviceName/$currentVersion"
 

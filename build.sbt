@@ -114,7 +114,6 @@ lazy val depServer = Seq(
   ubirchRestAkkaHttp,
   ubirchRestAkkaHttpTest % "test",
 
-  ubirchJsonAutoConvert,
   ubirchResponse
 
 )
@@ -128,13 +127,13 @@ lazy val depCore = Seq(
 ) ++ scalaLogging
 
 lazy val depModel = Seq(
-  ubirchJsonAutoConvert,
+  ubirchJson,
   json4sNative
 )
 
 lazy val depTestTools = Seq(
   json4sNative,
-  ubirchJsonAutoConvert,
+  ubirchJson,
   scalatest
 ) ++ scalaLogging
 
@@ -181,11 +180,10 @@ lazy val excludedLoggers = Seq(
 )
 
 lazy val ubirchConfig = ubirchUtilG %% "config" % "0.1" excludeAll(excludedLoggers: _*)
-lazy val ubirchJson = ubirchUtilG %% "json" % "0.3.4" excludeAll(excludedLoggers: _*)
-lazy val ubirchJsonAutoConvert = ubirchUtilG %% "json-auto-convert" % "0.3.4" excludeAll(excludedLoggers: _*)
+lazy val ubirchJson = ubirchUtilG %% "json" % "0.4.0" excludeAll(excludedLoggers: _*)
 lazy val ubirchRestAkkaHttp = ubirchUtilG %% "rest-akka-http" % "0.3.4" excludeAll(excludedLoggers: _*)
 lazy val ubirchRestAkkaHttpTest = ubirchUtilG %% "rest-akka-http-test" % "0.3.4" excludeAll(excludedLoggers: _*)
-lazy val ubirchResponse = ubirchUtilG %% "response-util" % "0.1.3" excludeAll(excludedLoggers: _*)
+lazy val ubirchResponse = ubirchUtilG %% "response-util" % "0.1.6" excludeAll(excludedLoggers: _*)
 
 /*
  * RESOLVER
