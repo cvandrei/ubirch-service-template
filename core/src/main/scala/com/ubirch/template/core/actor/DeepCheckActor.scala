@@ -18,10 +18,15 @@ class DeepCheckActor extends Actor
 
     case _: DeepCheckRequest =>
       val sender = context.sender()
-      Future(DeepCheckResponse()) map (sender ! _) // TODO check server health
+      deepCheck() map (sender ! _)
 
     case _ => log.error("unknown message")
 
+  }
+
+  private def deepCheck(): Future[DeepCheckResponse] = {
+    // TODO check server health
+    Future(DeepCheckResponse())
   }
 
 }
