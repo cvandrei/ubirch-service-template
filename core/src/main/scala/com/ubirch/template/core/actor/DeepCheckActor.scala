@@ -1,6 +1,7 @@
 package com.ubirch.template.core.actor
 
-import com.ubirch.util.model.DeepCheckResponse
+import com.ubirch.template.core.manager.DeepCheckManager
+import com.ubirch.util.deepCheck.model.{DeepCheckRequest, DeepCheckResponse}
 
 import akka.actor.{Actor, ActorLogging}
 
@@ -24,11 +25,6 @@ class DeepCheckActor extends Actor
 
   }
 
-  private def deepCheck(): Future[DeepCheckResponse] = {
-    // TODO check server health
-    Future(DeepCheckResponse())
-  }
+  private def deepCheck(): Future[DeepCheckResponse] = DeepCheckManager.connectivityCheck()
 
 }
-
-case class DeepCheckRequest()

@@ -3,10 +3,10 @@ package com.ubirch.template.server.route
 import com.typesafe.scalalogging.slf4j.StrictLogging
 
 import com.ubirch.template.config.Config
-import com.ubirch.template.core.actor.{ActorNames, DeepCheckActor, DeepCheckRequest}
+import com.ubirch.template.core.actor.{ActorNames, DeepCheckActor}
 import com.ubirch.template.util.server.RouteConstants
+import com.ubirch.util.deepCheck.model.{DeepCheckRequest, DeepCheckResponse}
 import com.ubirch.util.http.response.ResponseUtil
-import com.ubirch.util.model.DeepCheckResponse
 import com.ubirch.util.rest.akka.directives.CORSDirective
 
 import akka.actor.{ActorSystem, Props}
@@ -50,14 +50,9 @@ trait DeepCheckRoute extends CORSDirective
             case Success(resp) =>
               resp match {
 
-                case res: DeepCheckResponse =>
-                  if (res.status == "OK") {
-                    complete(res)
-                  } else {
-                    complete(serverErrorResponse(responseObject = res))
-                  }
-
-                case _ => complete(serverErrorResponse(errorType = "CreateError", errorMessage = "failed to create context"))
+                case res: DeepCheckResponse if res.status => complete(res)
+                case res: DeepCheckResponse if !res.status => complete(serverErrorResponse(responseObject = res))
+                case _ => complete(serverErrorResponse(errorType = "ServerError", errorMessage = "failed to run deep check"))
 
               }
 
