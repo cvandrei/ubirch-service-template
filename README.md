@@ -42,7 +42,8 @@ libraryDependencies ++= Seq(
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("releases")
+  Resolver.sonatypeRepo("releases"),
+  Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
   "com.ubirch.template" %% "core" % "1.0.0"
@@ -64,7 +65,8 @@ libraryDependencies ++= Seq(
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("releases")
+  Resolver.sonatypeRepo("releases"),
+  Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
   "com.ubirch.template" %% "model-rest" % "1.0.0"
@@ -80,6 +82,18 @@ resolvers ++= Seq(
 )
 libraryDependencies ++= Seq(
   "com.ubirch.template" %% "server" % "1.0.0"
+)
+```
+
+### `test-tools`
+
+```scala
+resolvers ++= Seq(
+  Resolver.sonatypeRepo("releases"),
+  Resolver.bintrayRepo("hseeberger", "maven")
+)
+libraryDependencies ++= Seq(
+  "com.ubirch.template" %% "test-tools" % "1.0.0"
 )
 ```
 

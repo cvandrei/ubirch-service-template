@@ -60,7 +60,10 @@ lazy val core = project
   .dependsOn(modelDb, util, testTools % "test")
   .settings(
     description := "business logic",
-    libraryDependencies ++= depCore
+    libraryDependencies ++= depCore,
+    resolvers ++= Seq(
+      resolverSeebergerJson
+    )
   )
 
 lazy val modelDb = (project in file("model-db"))
@@ -76,7 +79,10 @@ lazy val modelRest = (project in file("model-rest"))
   .settings(
     name := "model-rest",
     description := "JSON models",
-    libraryDependencies ++= depModelRest
+    libraryDependencies ++= depModelRest,
+    resolvers ++= Seq(
+      resolverSeebergerJson
+    )
   )
 
 lazy val server = project
@@ -102,7 +108,10 @@ lazy val testTools = (project in file("test-tools"))
   .settings(
     name := "test-tools",
     description := "tools useful in automated tests",
-    libraryDependencies ++= depTestTools
+    libraryDependencies ++= depTestTools,
+    resolvers ++= Seq(
+      resolverSeebergerJson
+    )
   )
 
 lazy val util = project
@@ -130,7 +139,6 @@ lazy val depServer = Seq(
 lazy val depCore = Seq(
   akkaActor,
   ubirchDeepCheckModel,
-  json4sNative,
   ubirchJson,
   scalatest % "test"
 ) ++ scalaLogging
@@ -142,16 +150,11 @@ lazy val depModelDb = Seq(
 
 lazy val depModelRest = Seq(
   ubirchUuid,
-  ubirchDate
-)
-
-lazy val depModel = Seq(
-  ubirchJson,
-  json4sNative
+  ubirchDate,
+  ubirchJson
 )
 
 lazy val depTestTools = Seq(
-  json4sNative,
   ubirchJson,
   scalatest
 ) ++ scalaLogging
@@ -166,18 +169,14 @@ lazy val depUtils = Seq(
 // VERSIONS
 val akkaV = "2.4.18"
 val akkaHttpV = "10.0.6"
-val json4sV = "3.5.2"
 
 val scalaTestV = "3.0.1"
 
 // GROUP NAMES
 val ubirchUtilG = "com.ubirch.util"
-val json4sG = "org.json4s"
 val akkaG = "com.typesafe.akka"
 
 lazy val scalatest = "org.scalatest" %% "scalatest" % scalaTestV
-
-lazy val json4sNative = json4sG %% "json4s-native" % json4sV
 
 lazy val scalaLogging = Seq(
   "org.slf4j" % "slf4j-api" % "1.7.21",
