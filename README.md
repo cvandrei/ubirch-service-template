@@ -20,10 +20,10 @@ occurrences of the string "template" with the name of your new service.
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("snapshots")
+  Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "cmdtools" % "0.1.0-SNAPSHOT"
+  "com.ubirch.template" %% "cmdtools" % "1.0.0"
 )
 ```
 
@@ -31,10 +31,10 @@ libraryDependencies ++= Seq(
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("snapshots")
+  Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "config" % "0.1.0-SNAPSHOT"
+  "com.ubirch.template" %% "config" % "1.0.0"
 )
 ```
 
@@ -42,10 +42,10 @@ libraryDependencies ++= Seq(
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("snapshots")
+  Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "core" % "0.1.0-SNAPSHOT"
+  "com.ubirch.template" %% "core" % "1.0.0"
 )
 ```
 
@@ -53,10 +53,10 @@ libraryDependencies ++= Seq(
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("snapshots")
+  Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "model" % "0.1.0-SNAPSHOT"
+  "com.ubirch.template" %% "model" % "1.0.0"
 )
 ```
 
@@ -64,11 +64,11 @@ libraryDependencies ++= Seq(
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("snapshots"),
+  Resolver.sonatypeRepo("releases"),
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "server" % "0.1.0-SNAPSHOT"
+  "com.ubirch.template" %% "server" % "1.0.0"
 )
 ```
 
@@ -76,10 +76,10 @@ libraryDependencies ++= Seq(
 
 ```scala
 resolvers ++= Seq(
-  Resolver.sonatypeRepo("snapshots")
+  Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "util" % "0.1.0-SNAPSHOT"
+  "com.ubirch.template" %% "util" % "1.0.0"
 )
 ```
 

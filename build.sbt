@@ -5,7 +5,6 @@ concurrentRestrictions in Global := Seq(
   Tags.limit(Tags.Test, 1)
 )
 
-val projectVersion = "0.1.0-SNAPSHOT"
 lazy val commonSettings = Seq(
 
   scalaVersion := "2.11.8",
@@ -17,11 +16,10 @@ lazy val commonSettings = Seq(
     url("https://github.com/ubirch/ubirch-template-service"),
     "scm:git:git@github.com:ubirch/ubirch-template-service.git"
   )),
-  version := "0.1.0-SNAPSHOT",
+  version := "1.0.0",
   test in assembly := {},
   resolvers ++= Seq(
-    Resolver.sonatypeRepo("releases"),
-    Resolver.sonatypeRepo("snapshots")
+    Resolver.sonatypeRepo("releases")
   )
 
 )
@@ -36,7 +34,8 @@ lazy val templateService = (project in file("."))
     cmdtools,
     config,
     core,
-    model,
+    modelDb,
+    modelRest,
     server,
     testTools,
     util
@@ -58,22 +57,32 @@ lazy val cmdtools = project
 
 lazy val core = project
   .settings(commonSettings: _*)
-  .dependsOn(model, util, testTools % "test")
+  .dependsOn(modelDb, util, testTools % "test")
   .settings(
     description := "business logic",
     libraryDependencies ++= depCore
   )
 
-lazy val model = project
+lazy val modelDb = (project in file("model-db"))
   .settings(commonSettings: _*)
   .settings(
-    description := "JSON models"
+    name := "model-db",
+    description := "Database models",
+    libraryDependencies ++= depModelDb
+  )
+
+lazy val modelRest = (project in file("model-rest"))
+  .settings(commonSettings: _*)
+  .settings(
+    name := "model-rest",
+    description := "JSON models",
+    libraryDependencies ++= depModelRest
   )
 
 lazy val server = project
   .settings(commonSettings: _*)
   .settings(mergeStrategy: _*)
-  .dependsOn(config, core, model, util)
+  .dependsOn(config, core, modelDb, modelRest, util)
   .enablePlugins(DockerPlugin)
   .settings(
     description := "REST interface and Akka HTTP specific code",
@@ -126,6 +135,16 @@ lazy val depCore = Seq(
   scalatest % "test"
 ) ++ scalaLogging
 
+lazy val depModelDb = Seq(
+  ubirchUuid,
+  ubirchDate
+)
+
+lazy val depModelRest = Seq(
+  ubirchUuid,
+  ubirchDate
+)
+
 lazy val depModel = Seq(
   ubirchJson,
   json4sNative
@@ -145,9 +164,9 @@ lazy val depUtils = Seq(
  ********************************************************/
 
 // VERSIONS
-val akkaV = "2.4.17"
-val akkaHttpV = "10.0.5"
-val json4sV = "3.5.1"
+val akkaV = "2.4.18"
+val akkaHttpV = "10.0.6"
+val json4sV = "3.5.2"
 
 val scalaTestV = "3.0.1"
 
@@ -180,11 +199,13 @@ lazy val excludedLoggers = Seq(
 )
 
 lazy val ubirchConfig = ubirchUtilG %% "config" % "0.1" excludeAll(excludedLoggers: _*)
-lazy val ubirchDeepCheckModel = ubirchUtilG %% "deep-check-model" % "0.1.0" excludeAll(excludedLoggers: _*)
-lazy val ubirchJson = ubirchUtilG %% "json" % "0.4.0" excludeAll(excludedLoggers: _*)
-lazy val ubirchRestAkkaHttp = ubirchUtilG %% "rest-akka-http" % "0.3.4" excludeAll(excludedLoggers: _*)
-lazy val ubirchRestAkkaHttpTest = ubirchUtilG %% "rest-akka-http-test" % "0.3.4" excludeAll(excludedLoggers: _*)
-lazy val ubirchResponse = ubirchUtilG %% "response-util" % "0.2.0" excludeAll(excludedLoggers: _*)
+lazy val ubirchDate = ubirchUtilG %% "date" % "0.1" excludeAll(excludedLoggers: _*)
+lazy val ubirchDeepCheckModel = ubirchUtilG %% "deep-check-model" % "0.1.1" excludeAll(excludedLoggers: _*)
+lazy val ubirchJson = ubirchUtilG %% "json" % "0.4.1" excludeAll(excludedLoggers: _*)
+lazy val ubirchRestAkkaHttp = ubirchUtilG %% "rest-akka-http" % "0.3.7" excludeAll(excludedLoggers: _*)
+lazy val ubirchRestAkkaHttpTest = ubirchUtilG %% "rest-akka-http-test" % "0.3.7" excludeAll(excludedLoggers: _*)
+lazy val ubirchResponse = ubirchUtilG %% "response-util" % "0.2.1" excludeAll(excludedLoggers: _*)
+lazy val ubirchUuid = ubirchUtilG %% "uuid" % "0.1.1" excludeAll(excludedLoggers: _*)
 
 /*
  * RESOLVER

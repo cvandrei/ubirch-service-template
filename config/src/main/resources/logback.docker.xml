@@ -3,7 +3,7 @@
     <!--
     # this variables have to be replaced
     # * ES_HOST
-    # ** hostname of ElastisSearch 2.x cluster, without a protocol, e.g. localhost
+    # ** hostname of ElasticSearch 2.x cluster, without a protocol, e.g. localhost
     # * ES_PORT_HTTP
     # ** e.g. 9200
     -->
@@ -72,4 +72,5 @@
         <!--<appender-ref ref="STDOUT"/>-->
         <appender-ref ref="ELASTIC"/>
     </root>
+
 </configuration>
