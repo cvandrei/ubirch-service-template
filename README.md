@@ -49,14 +49,25 @@ libraryDependencies ++= Seq(
 )
 ```
 
-### `model`
+### `model-db`
 
 ```scala
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "model" % "1.0.0"
+  "com.ubirch.template" %% "model-db" % "1.0.0"
+)
+```
+
+### `model-rest`
+
+```scala
+resolvers ++= Seq(
+  Resolver.sonatypeRepo("releases")
+)
+libraryDependencies ++= Seq(
+  "com.ubirch.template" %% "model-rest" % "1.0.0"
 )
 ```
 
