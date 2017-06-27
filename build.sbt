@@ -57,7 +57,7 @@ lazy val cmdtools = project
 
 lazy val core = project
   .settings(commonSettings: _*)
-  .dependsOn(modelDb, util, testTools % "test")
+  .dependsOn(config, modelDb, util, testTools % "test")
   .settings(
     description := "business logic",
     libraryDependencies ++= depCore,
