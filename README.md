@@ -9,7 +9,14 @@ occurrences of the string "template" with the name of your new service.
 
 ## Release History
 
-### Version 0.1.0 (tbd)
+### Version 1.0.1 (2017-07-23)
+
+* add `props()` method to actors
+* fixed problem with missing logs and ignored log levels
+* update logging dependencies
+* minor refactoring of dependency group names
+
+### Version 1.0.0 (2017-06-23)
 
 * initial release
 
@@ -23,7 +30,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "cmdtools" % "1.0.0"
+  "com.ubirch.template" %% "cmdtools" % "1.0.1"
 )
 ```
 
@@ -34,7 +41,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "config" % "1.0.0"
+  "com.ubirch.template" %% "config" % "1.0.1"
 )
 ```
 
@@ -46,7 +53,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "core" % "1.0.0"
+  "com.ubirch.template" %% "core" % "1.0.1"
 )
 ```
 
@@ -57,7 +64,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "model-db" % "1.0.0"
+  "com.ubirch.template" %% "model-db" % "1.0.1"
 )
 ```
 
@@ -69,7 +76,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "model-rest" % "1.0.0"
+  "com.ubirch.template" %% "model-rest" % "1.0.1"
 )
 ```
 
@@ -81,7 +88,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "server" % "1.0.0"
+  "com.ubirch.template" %% "server" % "1.0.1"
 )
 ```
 
@@ -93,7 +100,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "test-tools" % "1.0.0"
+  "com.ubirch.template" %% "test-tools" % "1.0.1"
 )
 ```
 
@@ -104,7 +111,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "util" % "1.0.0"
+  "com.ubirch.template" %% "util" % "1.0.1"
 )
 ```
 
