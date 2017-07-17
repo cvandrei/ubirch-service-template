@@ -9,6 +9,12 @@ occurrences of the string "template" with the name of your new service.
 
 ## Release History
 
+### Version 1.0.2 (2017-07-17)
+
+* update Akka HTTP to 10.0.9
+* update _com.ubirch.util:rest-akka-http(-test)_ to 0.3.8
+* update _com.ubirch.util:response-util_ to 0.2.3
+
 ### Version 1.0.1 (2017-07-23)
 
 * add `props()` method to actors
