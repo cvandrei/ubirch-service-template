@@ -16,7 +16,7 @@ lazy val commonSettings = Seq(
     url("https://github.com/ubirch/ubirch-template-service"),
     "scm:git:git@github.com:ubirch/ubirch-template-service.git"
   )),
-  version := "1.0.2",
+  version := "1.0.3",
   test in assembly := {},
   resolvers ++= Seq(
     Resolver.sonatypeRepo("releases")
@@ -167,7 +167,7 @@ lazy val depUtils = Seq(
  ********************************************************/
 
 // VERSIONS
-val akkaV = "2.4.18"
+val akkaV = "2.4.19"
 val akkaHttpV = "10.0.9"
 
 val scalaTestV = "3.0.1"

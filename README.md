@@ -9,6 +9,10 @@ occurrences of the string "template" with the name of your new service.
 
 ## Release History
 
+### Version 1.0.3 (2017-07-18)
+
+* update to Akka 2.4.19
+
 ### Version 1.0.2 (2017-07-17)
 
 * update Akka HTTP to 10.0.9
