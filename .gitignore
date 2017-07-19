@@ -17,4 +17,7 @@ project/plugins/project/
 .worksheet
 
 .idea
-/Dockerfile.input
+
+# Docker related files
+Dockerfile
+Dockerfile.input

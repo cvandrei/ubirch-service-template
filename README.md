@@ -9,6 +9,11 @@ occurrences of the string "template" with the name of your new service.
 
 ## Release History
 
+### Version 1.0.4 (2017-07-19)
+
+* update Dockerfile.template
+* update goBuild.sh
+
 ### Version 1.0.3 (2017-07-18)
 
 * update to Akka 2.4.19
@@ -185,4 +190,4 @@ TODO
 
 ## Create Docker Image
 
-    ./goBuild.sh assembly
+    ./goBuild assembly && ./goBuild containerbuild

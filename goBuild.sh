@@ -26,7 +26,7 @@ function build_software() {
 
 	# get local .ivy2
 	rsync -r ~/.ivy2/ ./.ivy2/
-  	docker run --user `id -u`:`id -g` --env AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID --env AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY  --volume=${PWD}:/build ubirch/sbt-build:${SBT_CONTAINER_VERSION} $1
+  	docker run --user `id -u`:`id -g` --volume=${PWD}:/build ubirch/sbt-build:${SBT_CONTAINER_VERSION} $1
 	# write back to local .ivy2
 
   if [ $? -ne 0 ]; then
@@ -63,13 +63,14 @@ function build_container() {
 
   if [ -z $GO_PIPELINE_LABEL ]; then
       # building without GoCD
-      docker build -t ubirch/ubirch-key-service:v$GO_PIPELINE_LABEL .
+      docker build -t ubirch/ubirch-template-service:v$GO_PIPELINE_LABEL .
   else
       # build with GoCD
-      docker build -t ubirch/ubirch-key-service:v$GO_PIPELINE_LABEL --build-arg GO_PIPELINE_NAME=$GO_PIPELINE_NAME \
+      docker build -t ubirch/ubirch-template-service:v$GO_PIPELINE_LABEL --build-arg GO_PIPELINE_NAME=$GO_PIPELINE_NAME \
       --build-arg GO_PIPELINE_LABEL=$GO_PIPELINE_LABEL \
       --build-arg GO_PIPELINE_COUNTER=$GO_PIPELINE_COUNTER \
-      --build-arg GO_REVISION_UBIRCH_KEY_SERVICE_DEV=$GO_REVISION_UBIRCH_KEY_SERVICE_DEV .
+      --build-arg GO_STAGE_COUNTER=$GO_STAGE_COUNTER \
+      --build-arg GO_REVISION_GIT=$GO_REVISION_GIT .
   fi
 
   if [ $? -ne 0 ]; then
@@ -78,8 +79,8 @@ function build_container() {
   fi
 
   # push Docker image
-  docker push ubirch/ubirch-key-service
-  docker push ubirch/ubirch-key-service:v$GO_PIPELINE_LABEL
+  docker push ubirch/ubirch-template-service
+  docker push ubirch/ubirch-template-service:v$GO_PIPELINE_LABEL
   if [ $? -ne 0 ]; then
     echo "Docker push failed"
     exit 1
@@ -89,9 +90,9 @@ function build_container() {
 }
 
 function container_tag () {
-    docker pull ubirch/ubirch-key-service:v$GO_PIPELINE_LABEL
-    docker tag ubirch/ubirch-key-service:v$GO_PIPELINE_LABEL ubirch/ubirch-key-service:latest
-    docker push ubirch/ubirch-key-service:latest
+    docker pull ubirch/ubirch-template-service:v$GO_PIPELINE_LABEL
+    docker tag ubirch/ubirch-template-service:v$GO_PIPELINE_LABEL ubirch/ubirch-template-service:latest
+    docker push ubirch/ubirch-template-service:latest
 
 }
 
