@@ -9,6 +9,10 @@ occurrences of the string "template" with the name of your new service.
 
 ## Release History
 
+### Version 1.0.5 (2017-07-31)
+
+* update to `com.ubirch.util:deep-check-model:0.2.0`
+
 ### Version 1.0.4 (2017-07-19)
 
 * update Dockerfile.template
