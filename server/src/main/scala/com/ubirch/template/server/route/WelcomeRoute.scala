@@ -1,6 +1,6 @@
 package com.ubirch.template.server.route
 
-import com.ubirch.template.config.Config
+import com.ubirch.template.config.TemplateServiceConfig
 import com.ubirch.util.json.MyJsonProtocol
 import com.ubirch.util.model.JsonResponse
 
@@ -19,8 +19,8 @@ trait WelcomeRoute extends MyJsonProtocol {
     get {
       complete {
 
-        val goInfo = s"${Config.goPipelineName} / ${Config.goPipelineLabel} / ${Config.goPipelineRevision}"
-        JsonResponse(message = s"Welcome to the ubirchUserService ( $goInfo )")
+        val goInfo = s"${TemplateServiceConfig.goPipelineName} / ${TemplateServiceConfig.goPipelineLabel} / ${TemplateServiceConfig.goPipelineRevision}"
+        JsonResponse(message = s"Welcome to the ubirchTemplateService ( $goInfo )")
 
       }
     }

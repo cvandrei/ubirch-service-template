@@ -4,7 +4,7 @@ package com.ubirch.template.config
   * author: cvandrei
   * since: 2017-01-19
   */
-object ConfigKeys {
+object TemplateServiceConfigKeys {
 
   final val CONFIG_PREFIX = "ubirchTemplateService"
 

@@ -1,6 +1,6 @@
 package com.ubirch.template.server.route
 
-import com.ubirch.template.util.server.RouteConstants
+import com.ubirch.template.util.server.TemplateServiceRouteConstants
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
@@ -16,13 +16,13 @@ class MainRoute {
 
   val myRoute: Route = {
 
-    pathPrefix(RouteConstants.apiPrefix) {
-      pathPrefix(RouteConstants.serviceName) {
-        pathPrefix(RouteConstants.currentVersion) {
+    pathPrefix(TemplateServiceRouteConstants.apiPrefix) {
+      pathPrefix(TemplateServiceRouteConstants.serviceName) {
+        pathPrefix(TemplateServiceRouteConstants.currentVersion) {
 
           pathEndOrSingleSlash {
             welcome.route
-          } ~ path(RouteConstants.check) {
+          } ~ path(TemplateServiceRouteConstants.check) {
             welcome.route
           } ~ deepCheck.route
 

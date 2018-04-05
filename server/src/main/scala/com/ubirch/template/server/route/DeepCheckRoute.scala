@@ -2,9 +2,9 @@ package com.ubirch.template.server.route
 
 import com.typesafe.scalalogging.slf4j.StrictLogging
 
-import com.ubirch.template.config.Config
+import com.ubirch.template.config.TemplateServiceConfig
 import com.ubirch.template.core.actor.{ActorNames, DeepCheckActor}
-import com.ubirch.template.util.server.RouteConstants
+import com.ubirch.template.util.server.TemplateServiceRouteConstants
 import com.ubirch.util.deepCheck.model.{DeepCheckRequest, DeepCheckResponse}
 import com.ubirch.util.http.response.ResponseUtil
 import com.ubirch.util.rest.akka.directives.CORSDirective
@@ -31,13 +31,13 @@ trait DeepCheckRoute extends CORSDirective
 
   implicit val system = ActorSystem()
   implicit val executionContext: ExecutionContextExecutor = system.dispatcher
-  implicit val timeout = Timeout(Config.actorTimeout seconds)
+  implicit val timeout = Timeout(TemplateServiceConfig.actorTimeout seconds)
 
   private val deepCheckActor = system.actorOf(DeepCheckActor.props(), ActorNames.DEEP_CHECK)
 
   val route: Route = {
 
-    path(RouteConstants.deepCheck) {
+    path(TemplateServiceRouteConstants.deepCheck) {
       respondWithCORS {
 
         get {

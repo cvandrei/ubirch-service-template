@@ -4,7 +4,7 @@ package com.ubirch.template.util.server
   * author: cvandrei
   * since: 2017-03-22
   */
-object RouteConstants {
+object TemplateServiceRouteConstants {
 
   final val apiPrefix = "api"
   final val serviceName = "templateService"

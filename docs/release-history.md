@@ -1,5 +1,15 @@
 ## Release History
 
+### Version 2.0.0 (2018-04-05)
+
+* upgrade sbt to 0.13.17
+* update to `com.ubirch.util:config:0.2.0`
+* update to `com.ubirch.util:date:0.5.1`
+* update to `com.ubirch.util:json:0.4.3`
+* update to `com.ubirch.util:oidc-utils:0.5.4`
+* update to `com.ubirch.util:response-util:0.2.4`
+* update to `com.ubirch.util:uuid:0.1.2`
+
 ### Version 1.0.7 (2017-09-13)
 
 * moved some of README's documentation to separate files in newly created folder _docs_

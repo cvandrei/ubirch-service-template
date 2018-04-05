@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit
 
 import com.typesafe.scalalogging.slf4j.StrictLogging
 
-import com.ubirch.template.config.Config
+import com.ubirch.template.config.TemplateServiceConfig
 import com.ubirch.template.server.route.MainRoute
 
 import akka.actor.ActorSystem
@@ -27,7 +27,7 @@ object Boot extends App with StrictLogging {
   implicit val materializer = ActorMaterializer()
   implicit val executionContext = system.dispatcher
 
-  implicit val timeout = Timeout(Config.actorTimeout seconds)
+  implicit val timeout = Timeout(TemplateServiceConfig.actorTimeout seconds)
 
   val bindingFuture = start()
   registerShutdownHooks()
@@ -42,8 +42,8 @@ object Boot extends App with StrictLogging {
 
   def start(): Future[ServerBinding] = {
 
-    val interface = Config.interface
-    val port = Config.port
+    val interface = TemplateServiceConfig.interface
+    val port = TemplateServiceConfig.port
     implicit val timeout = Timeout(5, TimeUnit.SECONDS)
 
     logger.info(s"start http server on $interface:$port")
