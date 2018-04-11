@@ -1,5 +1,14 @@
 ## Release History
 
+### Version 2.0.1 (2018-04-11)
+
+* update to `com.typesafe.akka:akka-(actor|slf4j):2.4.20`
+* update to `com.typesafe.akka:akka-http:10.0.11`
+* update to `com.ubirch.util:oidc-utils:0.5.6`
+* update to `com.ubirch.util:response-util:0.2.5`
+* update to `com.ubirch.util:rest-akka-http:0.3.9`
+* update to `com.ubirch.util:rest-akka-http-test:0.3.9`
+
 ### Version 2.0.0 (2018-04-05)
 
 * upgrade sbt to 0.13.17

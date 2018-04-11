@@ -2,9 +2,9 @@
 
 ### Welcome / Health / Check
 
-    curl localhost:8092/
-    curl localhost:8092/api/templateService/v1
-    curl localhost:8092/api/templateService/v1/check
+    curl localhost:8118/
+    curl localhost:8118/api/templateService/v1
+    curl localhost:8118/api/templateService/v1/check
 
 If healthy the server response is:
 
@@ -16,7 +16,7 @@ If not healthy the server response is:
 
 ### Deep Check / Server Health
 
-    curl localhost:8092/api/templateService/v1/deepCheck
+    curl localhost:8118/api/templateService/v1/deepCheck
 
 If healthy the response is:
 

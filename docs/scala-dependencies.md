@@ -7,7 +7,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "cmdtools" % "1.0.1"
+  "com.ubirch.template" %% "cmdtools" % "2.0.1"
 )
 ```
 
@@ -18,7 +18,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "config" % "1.0.1"
+  "com.ubirch.template" %% "config" % "2.0.1"
 )
 ```
 
@@ -30,7 +30,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "core" % "1.0.1"
+  "com.ubirch.template" %% "core" % "2.0.1"
 )
 ```
 
@@ -41,7 +41,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "model-db" % "1.0.1"
+  "com.ubirch.template" %% "model-db" % "2.0.1"
 )
 ```
 
@@ -53,7 +53,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "model-rest" % "1.0.1"
+  "com.ubirch.template" %% "model-rest" % "2.0.1"
 )
 ```
 
@@ -65,7 +65,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "server" % "1.0.1"
+  "com.ubirch.template" %% "server" % "2.0.1"
 )
 ```
 
@@ -77,7 +77,7 @@ resolvers ++= Seq(
   Resolver.bintrayRepo("hseeberger", "maven")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "test-tools" % "1.0.1"
+  "com.ubirch.template" %% "test-tools" % "2.0.1"
 )
 ```
 
@@ -88,6 +88,6 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases")
 )
 libraryDependencies ++= Seq(
-  "com.ubirch.template" %% "util" % "1.0.1"
+  "com.ubirch.template" %% "util" % "2.0.1"
 )
 ```
