@@ -23,8 +23,11 @@ class DeepCheckActor extends Actor
       val sender = context.sender()
       deepCheck() map (sender ! _)
 
-    case _ => log.error("unknown message")
+  }
 
+  override def unhandled(message: Any): Unit = {
+    log.error(s"received from ${context.sender().path} unknown message: ${message.toString} (${message.getClass})")
+    //context.sender() ! JsonErrorResponse(errorType = "ServerError", errorMessage = "we're sorry but the server has a problem")
   }
 
   private def deepCheck(): Future[DeepCheckResponse] = DeepCheckManager.connectivityCheck()

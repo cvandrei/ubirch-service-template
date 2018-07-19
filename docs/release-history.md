@@ -1,5 +1,9 @@
 ## Release History
 
+### Version 2.1.1 (2018-07-19)
+
+* override `unhandled()` in actor 
+
 ### Version 2.1.0 (2018-07-18)
 
 * update to `scalaVersion := "2.11.12"`
