@@ -7,7 +7,6 @@
 * update to plugin `se.marcuslonnberg:sbt-docker:1.5.0`
 * disabled plugin `com.zavakid.sbt:sbt-one-log` as it's not yet available for sbt `1.1.x`
 * update to plugin `org.scoverage:sbt-scoverage:1.5.1`
-* update to plugin ``
 
 ### Version 2.1.1 (2018-07-19)
 
