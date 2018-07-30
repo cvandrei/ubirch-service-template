@@ -1,5 +1,14 @@
 ## Release History
 
+### Version 3.0.0 (2018-07-19)
+
+* update to sbt from `0.13.17` to `1.1.6`
+* update to plugin `com.eed3si9n:sbt-assembly:0.14.7`
+* update to plugin `se.marcuslonnberg:sbt-docker:1.5.0`
+* disabled plugin `com.zavakid.sbt:sbt-one-log` as it's not yet available for sbt `1.1.x`
+* update to plugin `org.scoverage:sbt-scoverage:1.5.1`
+* update to plugin ``
+
 ### Version 2.1.1 (2018-07-19)
 
 * override `unhandled()` in actor 
