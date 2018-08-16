@@ -9,6 +9,10 @@ import com.typesafe.scalalogging.slf4j.StrictLogging
 object DummyCmdTool extends App
   with StrictLogging {
 
-  // TODO implement
+  def run(): Unit = {
+
+    // TODO implement
+
+  }
 
 }

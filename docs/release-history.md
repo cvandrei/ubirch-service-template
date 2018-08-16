@@ -1,5 +1,9 @@
 ## Release History
 
+### Version 3.1.0 (2018-08-16)
+
+* update `DummyCmdTool` to have all logic inside a `run(): Unit` method
+
 ### Version 3.1.0 (2018-08-13)
 
 * update to `com.ubirch.util:config:0.2.3`
