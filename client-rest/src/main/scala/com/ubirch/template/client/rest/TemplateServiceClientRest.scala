@@ -64,7 +64,7 @@ object TemplateServiceClientRest extends MyJsonProtocol
       case res@HttpResponse(code, _, _, _) =>
 
         res.discardEntityBytes()
-        val errorText = s"deepCheck() call to key-service failed: url=$url code=$code, status=${res.status}"
+        val errorText = s"deepCheck() call to template-service failed: url=$url code=$code, status=${res.status}"
         logger.error(errorText)
         val deepCheckRes = DeepCheckResponse(status = false, messages = Seq(errorText))
         Future(
