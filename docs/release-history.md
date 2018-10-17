@@ -1,5 +1,12 @@
 ## Release History
 
+### Version 4.0.0 (2018-10-17)
+
+* added REST client template
+* update to `com.ubirch.util:deep-check-model:0.3.0`
+* update to `com.ubirch.util:oidc-utils:0.8.3`
+* update to `com.ubirch.util:response-util:0.4.1`
+
 ### Version 3.1.0 (2018-08-16)
 
 * update `DummyCmdTool` to have all logic inside a `run(): Unit` method

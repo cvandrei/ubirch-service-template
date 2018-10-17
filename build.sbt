@@ -14,7 +14,7 @@ lazy val commonSettings = Seq(
     url("https://github.com/ubirch/ubirch-template-service"),
     "scm:git:git@github.com:ubirch/ubirch-template-service.git"
   )),
-  version := "3.1.1",
+  version := "4.0.0",
   test in assembly := {},
   resolvers ++= Seq(
     Resolver.sonatypeRepo("releases")
@@ -32,6 +32,7 @@ lazy val templateService = (project in file("."))
     skip in publish := true
   )
   .aggregate(
+    clientRest,
     cmdtools,
     config,
     core,
@@ -42,11 +43,13 @@ lazy val templateService = (project in file("."))
     util
   )
 
-lazy val config = project
-  .settings(commonSettings: _*)
+
+lazy val clientRest = (project in file("client-rest"))
+  .settings(commonSettings)
+  .dependsOn(config, modelRest, util)
   .settings(
-    description := "template-service specific config and config tools",
-    libraryDependencies += ubirchConfig
+    description := "REST client",
+    libraryDependencies ++= depClientRest
   )
 
 lazy val cmdtools = project
@@ -54,6 +57,13 @@ lazy val cmdtools = project
   .dependsOn(config, testTools)
   .settings(
     description := "command line tools"
+  )
+
+lazy val config = project
+  .settings(commonSettings: _*)
+  .settings(
+    description := "template-service specific config and config tools",
+    libraryDependencies += ubirchConfig
   )
 
 lazy val core = project
@@ -138,6 +148,15 @@ lazy val depServer = Seq(
 
 )
 
+lazy val depClientRest = Seq(
+  akkaHttp,
+  akkaStream,
+  akkaSlf4j,
+  ubirchResponse,
+  ubirchDeepCheckModel,
+  scalatest % "test"
+) ++ scalaLogging
+
 lazy val depCore = Seq(
   akkaActor,
   ubirchDeepCheckModel,
@@ -209,10 +228,10 @@ lazy val excludedLoggers = Seq(
 
 lazy val ubirchConfig = ubirchUtilG %% "config" % "0.2.3" excludeAll(excludedLoggers: _*)
 lazy val ubirchDate = ubirchUtilG %% "date" % "0.5.3" excludeAll(excludedLoggers: _*)
-lazy val ubirchDeepCheckModel = ubirchUtilG %% "deep-check-model" % "0.3.0" excludeAll(excludedLoggers: _*)
+lazy val ubirchDeepCheckModel = ubirchUtilG %% "deep-check-model" % "0.3.1" excludeAll(excludedLoggers: _*)
 lazy val ubirchJson = ubirchUtilG %% "json" % "0.5.1" excludeAll(excludedLoggers: _*)
-lazy val ubirchOidcUtils = ubirchUtilG %% "oidc-utils" % "0.7.2" excludeAll (excludedLoggers: _*)
-lazy val ubirchResponse = ubirchUtilG %% "response-util" % "0.4.0" excludeAll(excludedLoggers: _*)
+lazy val ubirchOidcUtils = ubirchUtilG %% "oidc-utils" % "0.8.3" excludeAll (excludedLoggers: _*)
+lazy val ubirchResponse = ubirchUtilG %% "response-util" % "0.4.1" excludeAll(excludedLoggers: _*)
 lazy val ubirchRestAkkaHttp = ubirchUtilG %% "rest-akka-http" % "0.4.0" excludeAll(excludedLoggers: _*)
 lazy val ubirchRestAkkaHttpTest = ubirchUtilG %% "rest-akka-http-test" % "0.4.0" excludeAll(excludedLoggers: _*)
 lazy val ubirchUuid = ubirchUtilG %% "uuid" % "0.1.3" excludeAll(excludedLoggers: _*)
